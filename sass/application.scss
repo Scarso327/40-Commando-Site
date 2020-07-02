@@ -1,0 +1,79 @@
+@import 'themes.scss';
+
+section:not(:first-of-type) {
+    padding-top: 0;
+}
+
+.tab-button {
+    @include themed() {
+        &.current {
+            color: theme('title-font') !important;
+            background-color: theme('positive-bg') !important;
+        }
+
+        &.completed {
+            color: theme('title-font');
+            background-color: theme('positive-darker-bg') !important;
+        }
+
+        &.active {
+            color: theme('highlighted-font') !important;
+        }
+
+        &.current, &.completed {
+            &:hover {
+                color: theme('highlighted-font') !important;
+            }
+        }
+    }
+}
+
+.app-header {
+    text-align: left !important;
+
+    .app-info {
+        float: right;
+        opacity: 0.5;
+
+        a {
+            margin-right: 5px;
+
+            &:hover {
+                @include themed() {
+                    color: theme('highlighted-font');
+                }
+
+                opacity: 1;
+
+                .fa-check-circle {
+                    color: green;
+                }
+
+                .fa-times-circle {
+                    color: red;
+                }
+
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.app-styling {
+    padding-top: 25px;
+
+    h4 {
+        font-weight: bold;
+        text-align: left !important;
+    }
+
+    p {
+        margin: 0;
+        margin-bottom: 15px;
+        user-select: text;
+    }
+}
+
+#myFormsTable {
+    margin: 25px 0;
+}

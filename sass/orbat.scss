@@ -1,0 +1,112 @@
+@import 'themes.scss';
+
+.tree ul {
+    display: flex;
+    position: relative;
+    list-style-type: none;
+    justify-content: center;
+    padding: 20px 0.4vw 5px;
+
+    li {
+        text-align: center;
+        position: relative;
+        padding: 20px;
+
+        &::before, &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 50%;
+            border-top: 1px solid #ccc;
+            width: 50%;
+            height: 20px;
+        }
+
+        &::after {
+            right: auto;
+            left: 50%;
+            border-left: 1px solid #ccc;
+        }
+
+        &:only-child {
+            padding-top: 0;
+        }
+
+        &:first-child{
+            &::after {
+                border-radius: 5px 0 0 0;
+                -webkit-border-radius: 5px 0 0 0;
+                -moz-border-radius: 5px 0 0 0;
+            }
+
+            &::before {
+                border: 0 none !important;
+            }
+        }
+        &:last-child{
+            &::after {
+                border: 0 none !important;
+            }
+            
+            &::before {
+                border-right: 1px solid #ccc;
+                border-radius: 0 5px 0 0;
+                -webkit-border-radius: 0 5px 0 0;
+                -moz-border-radius: 0 5px 0 0;
+            }
+        }
+
+        .branch {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 5px;
+            img {
+                padding: 5px 0;
+                height: 32px;
+                margin: 0 auto;
+            }
+        }
+
+        .members {
+            display: flex;
+            flex-direction: column;
+            border-radius: 5px;
+            width: fit-content;
+            margin: 5px auto;
+
+            @include themed() {
+                background-color: theme('third-bg');
+            }
+
+            a {
+                padding: 5px;
+                font-size: 12px;
+                
+                &:hover {
+                    @include themed() {
+                        color: theme('highlighted-font');
+                        background-color: theme('second-bg');
+                    }
+                }
+
+                &:not(:first-child) {
+                    padding-bottom: 5px;
+                    border-top: 1px solid rgba($color: #000000, $alpha: 0.3);
+                }
+            }
+        }
+    }
+
+    ul {
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            border-left: 1px solid #ccc;
+            width: 0;
+            height: 20px;
+        }
+    }
+}

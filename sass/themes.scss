@@ -1,0 +1,58 @@
+$themes: (
+    light: (
+        // Fonts...
+        main-font: #474747,
+        highlighted-font: #71686e,
+        title-font: #232323,
+        accent-font: #108b4a,
+        // Backgrounds...
+        main-bg: #f6f6f6,
+        second-bg: #f3f3f3,
+        third-bg: #f1f1f1,
+        footer-bg: #282828,
+        form-bg: #ffffff,
+        border: #ECECEC,
+        // Statuses...
+        status-font: #e4e4e4,
+        positive-bg: #6aa74f,
+        positive-darker-bg: #5f9647
+    ),
+    dark: (
+        // Fonts...
+        main-font: #8a8d93,
+        highlighted-font: white,
+        title-font: #c5c6c7,
+        accent-font: #108b4a,
+        // Backgrounds...
+        main-bg: #282828,
+        second-bg: #333333,
+        third-bg: #393939,
+        footer-bg: #202020,
+        form-bg: #282828,
+        border: #474747,
+        // Statuses...
+        status-font: #CCCDCF,
+        positive-bg: #436932,
+        positive-darker-bg: #3c5e2d
+    )
+);
+
+@mixin themed() {
+    @each $theme, $map in $themes {
+        .theme--#{$theme} & {
+            $theme-map: () !global;
+
+            @each $key, $submap in $map {
+                $value: map-get(map-get($themes, $theme), '#{$key}');
+                $theme-map: map-merge($theme-map, ($key: $value)) !global;
+            }
+
+            @content;
+            $theme-map: null !global;
+        }
+    }
+}
+  
+@function theme($key) {
+    @return map-get($theme-map, $key);
+}

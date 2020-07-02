@@ -1,0 +1,120 @@
+@import 'themes.scss';
+
+.profile-body {
+    display: flex;
+
+    div.col {
+        display: flex;
+        flex-direction: column;
+        width: 20%;
+
+        &:first-child {
+            margin-right: 10px;
+        }
+
+        &.main {
+            flex-grow: 1;
+        }
+
+        h3, h4 {
+            text-align: center;
+            &.name {
+                padding-top: 10px;
+            }
+        }
+    }
+
+    .steam-pfp-box {
+        padding: 2px;
+        padding-bottom: 5px;
+        text-align: center;
+        font-size: 14px;
+        border-radius: 5px;
+
+        @include themed() {
+            color: theme('status-font');
+            background-color: theme('positive-bg');
+        }
+
+        img {
+            height: auto;
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 4px;
+        }
+
+        &.no-border {
+            padding: 0;
+            
+            img {
+                margin: 0;
+            }
+        }
+    }
+}
+
+.form .form-group {
+    margin-bottom: 5px;
+}
+
+#log-info {
+    h4 {
+        font-weight: 600;
+    }
+
+    p:not(:first-child) {
+        margin-bottom: 15px;
+    }
+}
+
+.table-buttons {
+    opacity: 0.5;
+
+    a {
+        margin-right: 5px;
+
+        &:hover {
+            @include themed() {
+                color: theme('highlighted-font');
+            }
+
+            opacity: 1;
+
+            .fa-times-circle {
+                color: red;
+            }
+
+            cursor: pointer;
+        }
+    }
+}
+
+.action-button {
+    cursor: pointer;
+    outline: none;
+    margin: 5px;
+    padding: .5em 1em;
+    text-transform: none;
+    text-shadow: none;
+    font-size: 15px;
+    text-decoration: none;
+    background-image: none;
+    border: none;
+    border-radius: 5px;
+    height: fit-content;
+    text-align: center;
+    display: block;
+
+    &:not(:first-of-type) {
+        margin-top: 0px;
+    }
+
+    @include themed() {
+        background-color: theme('second-bg');
+
+        &:hover {
+            color: theme('highlighted-font');
+            background-color: theme('third-bg');
+        }
+    }
+}

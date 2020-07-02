@@ -1,0 +1,35 @@
+header.banner {
+    position: relative;
+    height: 100vh;
+    background-size: cover; 
+    background-position: center center;
+
+    .overlay {
+        position: absolute;
+        top: 0; bottom: 0; left: 0; right: 0;
+        background-color: rgba(0,0,0,0.5);
+    }
+
+    .center {
+        position: absolute;
+        top: 0; bottom: 0; left: 0; right: 0;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+
+        h1 {
+            color: #eeeeee;
+            line-height: 100vh;
+        }
+    }
+
+    &.title {
+        height: 30vh;
+
+        .center {
+            h1 {
+                line-height: 30vh;
+            }
+        }
+    }
+}

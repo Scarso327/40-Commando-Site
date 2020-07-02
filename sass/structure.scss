@@ -1,0 +1,49 @@
+@import 'themes.scss';
+
+section:not(:first-of-type) {
+    padding-top: 0;
+}
+
+table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    margin-top: 25px;
+
+    @include themed() {
+        color: theme('main-font');
+
+        tr {
+            border-top: 1px solid theme('border');
+
+            &.header {
+                background-color: theme('third-bg');
+            }
+
+            th, td {
+                padding: 10px;
+
+                &:first-child {
+                    max-width: 64px;
+                }
+            }
+
+            td:nth-child(2) {
+                white-space: nowrap;
+                min-width: 150px;
+            }
+
+            td:nth-child(4) {
+                text-align: justify;
+            }
+        }
+
+        &.centred {
+            text-align: center;
+
+            td:nth-child(4) {
+                text-align: center;
+            }
+        }
+    }
+}
